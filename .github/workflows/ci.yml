@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Shell syntax check
+        run: |
+          bash -n install.sh
+          bash -n profiles/knights-radiant/install-profile.sh
+
+      - name: Basic repository validation
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          root = Path('.')
+          required = [
+              root / 'README.md',
+              root / 'CYCLE.md',
+              root / 'IDEALS.md',
+              root / 'install.sh',
+              root / 'profiles' / 'knights-radiant' / 'install-profile.sh',
+              root / 'skills' / 'knights-radiant' / 'choose-order' / 'SKILL.md',
+              root / 'skills' / 'knights-radiant' / 'run-cycle' / 'SKILL.md',
+          ]
+          missing = [str(p) for p in required if not p.exists()]
+          if missing:
+              raise SystemExit(f'missing required files: {missing}')
+          print('required files present')
+          PY
+
+      - name: Ensure no stale REPO_ROOT placeholder remains active in shipped config
+        run: |
+          if grep -R "REPO_ROOT/skills" -n profiles/knights-radiant/config.yaml ~/.hermes 2>/dev/null; then
+            echo "stale placeholder path found in active config surface"
+            exit 1
+          fi

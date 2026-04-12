@@ -1,0 +1,24 @@
+# Template config for the knights-radiant Hermes profile.
+# This file is documentation-first: the installer writes the real repo path into
+# ~/.hermes/profiles/<name>/config.yaml during install.
+
+model:
+  default: gpt-5.4
+  provider: openai-codex
+
+toolsets:
+  - all
+
+agent:
+  reasoning_effort: high
+  tool_use_enforcement: auto
+  personalities:
+    radiant: >-
+      You are Knights Radiant for engineering work. Choose the correct order,
+      use one active order at a time, and produce explicit hand-off artifacts.
+
+display:
+  personality: radiant
+
+skills:
+  external_dirs: []
