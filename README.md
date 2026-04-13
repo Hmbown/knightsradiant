@@ -1,49 +1,60 @@
-# Knights Radiant for Hermes
+# Knights Radiant
 
-Knights Radiant is a public-facing Hermes profile + skill pack for structured engineering work.
+*Life before death. Strength before weakness. Journey before destination.*
 
-It treats software work as a rotation of lenses rather than a single all-purpose persona. Each order represents a disciplined engineering stance: architecture, scaffolding, reliability, integration, naming, observability, edge cases, simplification, enforcement, and rollout safety.
+Ten orders. Ten engineering stances. One codebase at a time.
 
-The theme is mnemonic. The value is practical: a forced perspective shift catches blind spots that a single coding persona, reviewer, or engineer will routinely miss.
+Knights Radiant is a [Hermes](https://github.com/anthropics/hermes) profile and skill pack that treats software work as a rotation of disciplined lenses rather than a single all-purpose persona. Each order carries a different Surge — architecture, reliability, rollout safety, observability, naming, enforcement, edge cases, scaffolding, integration, and simplification — and produces an explicit hand-off artifact before yielding the baton.
 
-GitHub:
-- https://github.com/Hmbown/knightsradiant
+The theme is Sanderson's. The value is practical: a forced perspective shift catches blind spots that a single engineer, reviewer, or coding agent will routinely miss.
 
-## What you get
+> The most important words a man can say are, *"I will do better."*
 
-- a reusable Hermes profile template under `profiles/knights-radiant/`
-- a Hermes-loadable skill pack under `skills/knights-radiant/`
-- canonical order docs under `agents/NN-order/AGENTS.md`
-- local order subskills under `agents/NN-order/skills/`
-- shared doctrine in `CYCLE.md` and `IDEALS.md`
-- artifact templates under `templates/`
-- examples under `docs/examples/`
+## The Ten Orders
 
-## The ten orders
-
-| Order | Primary engineering stance | One-line role |
+| Order | Surge | Ideal |
 |---|---|---|
-| Windrunner | rollout safety | Protect the team and the users; make risky changes safe to land. |
-| Skybreaker | enforcement | Turn expectations into enforceable law: lint, types, contracts, CI. |
-| Dustbringer | simplification | Delete what is dead, split what is overgrown, and pay down structural debt. |
-| Edgedancer | edge-path coverage | Cover forgotten paths: edge cases, recovery, accessibility, slow paths. |
-| Truthwatcher | observability | See what is real: instrumentation, debugging, traces, and root-cause analysis. |
-| Lightweaver | legibility | Make the system legible and honest through names, docs, and API shape. |
-| Elsecaller | architecture | Plan the structure, compare alternatives, and choose boundaries deliberately. |
-| Willshaper | scaffolding | Shape the repo, build, and scaffolding so the paved road is the right road. |
-| Stoneward | reliability core | Hold the load-bearing core: reliability, capacity, performance, failure budgets. |
-| Bondsmith | integration | Unite systems, teams, and dependencies without hiding the seams. |
+| **Windrunner** | Rollout Safety | *I will take the risky change into my hands and make it safe for others to carry.* |
+| **Skybreaker** | Enforcement | *I will make the rule explicit, enforce it evenly, and rewrite the rule when reality condemns it.* |
+| **Dustbringer** | Simplification | *I will cut away what is dead, and I will prove the living can still stand.* |
+| **Edgedancer** | Edge Paths | *I will notice the path most people miss, and I will make it safe enough to use.* |
+| **Truthwatcher** | Observability | *I will not guess where I can observe, and I will not call it understood until the evidence agrees.* |
+| **Lightweaver** | Legibility | *I will make the system legible, and I will not use pretty language to hide an ugly truth.* |
+| **Elsecaller** | Architecture | *I will leave the obvious path long enough to map the better one, then return with a plan others can build.* |
+| **Willshaper** | Scaffolding | *I will shape the ground so building the right thing becomes the easy thing.* |
+| **Stoneward** | Reliability | *I will hold the weight, measure the strain, and strengthen what others must trust.* |
+| **Bondsmith** | Integration | *I will bind the parts without hiding the seams, so many systems can move as one.* |
+
+## The Five Ideals
+
+Every order inherits these oaths. Their methods differ. Their ethics do not.
+
+1. **Users before elegance** — I will not buy a neat merge with user pain.
+2. **Face the real break** — I will confront the hard cause, not polish the easy proxy.
+3. **The path is part of the promise** — I will treat tests, review, docs, and rollout as part of done.
+4. **Truth before comfort** — I will name uncertainty plainly and measure before I boast.
+5. **Leave the road clearer** — I will leave the codebase easier to trust, change, and share.
+
+## What You Get
+
+- A reusable Hermes profile template under `profiles/knights-radiant/`
+- A Hermes-loadable skill pack under `skills/knights-radiant/`
+- Canonical order docs under `agents/NN-order/AGENTS.md`
+- Local order subskills under `agents/NN-order/skills/`
+- Shared doctrine in `CYCLE.md` and `IDEALS.md`
+- Artifact templates under `templates/`
+- Examples under `docs/examples/`
 
 ## Install
 
 ### Prerequisites
 
 - Hermes installed and working (`hermes --help`)
-- an existing usable Hermes profile to clone from
+- An existing usable Hermes profile to clone from
 - `python3` available on PATH
 - macOS/Linux shell environment with `bash`
 
-### Fast path: install the profile
+### Speak the words
 
 ```bash
 git clone https://github.com/Hmbown/knightsradiant.git
@@ -51,13 +62,13 @@ cd knightsradiant
 ./install.sh
 ```
 
-That creates a `knights-radiant` Hermes profile by cloning your active Hermes profile, then patches it to:
+That creates a `knights-radiant` Hermes profile by cloning your active profile, then patches it to:
 - set high reasoning effort
 - install the Knights Radiant SOUL/persona
 - add this repo's `skills/` directory as an external skill dir
 - set the default display personality to `radiant`
 
-Start it with:
+Summon it:
 
 ```bash
 hermes --profile knights-radiant
@@ -69,9 +80,9 @@ hermes --profile knights-radiant
 ./install.sh my-radiant-profile
 ```
 
-### Skill-pack-only path
+### Skill-pack-only path (Nahel bond without the Shardblade)
 
-If you do not want a dedicated profile, add this repo's `skills/` directory to an existing Hermes profile:
+If you do not want a dedicated profile, add this repo's `skills/` directory to an existing profile:
 
 ```yaml
 skills:
@@ -79,110 +90,109 @@ skills:
     - /absolute/path/to/knightsradiant/skills
 ```
 
-Then restart Hermes or begin a fresh session and load:
+Then restart Hermes and load:
 - `choose-order`
 - `run-cycle`
 - one active order at a time, such as `elsecaller` or `windrunner`
 
-## Verify install
-
-After installation:
+## Verify Install
 
 ```bash
 hermes --profile knights-radiant skills list | grep -E 'choose-order|run-cycle|windrunner|elsecaller'
 ```
 
-Expected outcome:
-- the profile exists
-- the repo skill directory is attached
-- Knights Radiant skills are discoverable
+Expected: the profile exists, the skill directory is attached, and all Knights Radiant skills are discoverable.
 
-## How to use it
+## How to Use It
 
 1. Read `CYCLE.md` and pick the cycle that matches the work.
-2. Use `choose-order` if the first lens is unclear. It picks the narrowest order that names the real constraint.
-3. Use `run-cycle` when the task needs an intentional sequence rather than a single lens. It picks a fuller staged workflow.
+2. Use `choose-order` if the first lens is unclear. It picks the narrowest order that names the real constraint — like a spren finding the right Radiant.
+3. Use `run-cycle` when the task needs an intentional sequence. It picks a fuller staged workflow — a patrol through multiple Surges.
 4. Load one active order at a time.
 5. Produce that order's hand-off artifact before rotating.
 6. Keep the previous artifact in context for the next order.
 
-**Note:** `choose-order` and `run-cycle` may recommend different starting orders for the same task. That is intentional. `choose-order` optimizes for "what matters most right now." `run-cycle` optimizes for "what sequence covers the full scope." Use `choose-order` when you need a single focused lens. Use `run-cycle` when the work spans multiple concerns.
+**choose-order vs run-cycle:** These may recommend different starting orders for the same task. That is intentional. `choose-order` optimizes for "what matters most right now." `run-cycle` optimizes for "what sequence covers the full scope." One is a single Surge. The other is a full patrol.
 
-## Order modes
+## Order Modes
 
-Some orders operate in more than one mode depending on timing:
+Some orders shift stance depending on timing:
 
-- **Windrunner** has a *prospective shield* mode (before code is written) and a *retrospective shield* mode (reviewing an existing diff). Both produce the same safety packet.
-- **Truthwatcher** has a *diagnostic mode* (investigating a bug or incident) and a *pre-mortem mode* (defining what failure would look like before a risky change ships). Both produce the same evidence packet.
+- **Windrunner** has a *prospective shield* (before code exists — build guardrails in) and a *retrospective shield* (reviewing a diff — assess what's already built). Both produce the same safety packet.
+- **Truthwatcher** has a *diagnostic mode* (an incident has occurred — build the evidence chain) and a *pre-mortem mode* (a risky change is planned — define what failure would look like). Both produce the same evidence packet.
 
-## Routing matrix
+## Routing Matrix
+
+*"The right order for the right storm."*
 
 | If the task is mainly about... | Start with | Expected artifact |
 |---|---|---|
-| new subsystem shape or irreversible decisions | Elsecaller | ADR + system map + constraints |
-| repo structure, generators, bootstrap, build paths | Willshaper | scaffold patch + setup checklist |
-| hot paths, retries, correctness under strain | Stoneward | characterization tests + budgets |
-| multi-service compatibility or rollout ordering | Bondsmith | compatibility matrix + rollout sequence |
-| confusing names, docs, CLI/API shape | Lightweaver | naming decisions + API guide |
-| incident triage, debugging, observability | Truthwatcher | incident note + telemetry plan |
-| edge cases, retries, accessibility, recovery | Edgedancer | edge-case matrix + recovery test list |
-| stale abstractions, dead code, compatibility residue | Dustbringer | deletion ledger + migration notes |
-| turning norms into enforceable checks | Skybreaker | lint/contract rule + CI gate |
-| blast radius, rollback, watchpoints | Windrunner | rollout packet + rollback plan |
+| New subsystem shape or irreversible decisions | Elsecaller | ADR + system map + constraints |
+| Repo structure, generators, bootstrap, build paths | Willshaper | scaffold patch + setup checklist |
+| Hot paths, retries, correctness under strain | Stoneward | characterization tests + budgets |
+| Multi-service compatibility or rollout ordering | Bondsmith | compatibility matrix + rollout sequence |
+| Confusing names, docs, CLI/API shape | Lightweaver | naming decisions + API guide |
+| Incident triage, debugging, observability | Truthwatcher | incident note + telemetry plan |
+| Edge cases, retries, accessibility, recovery | Edgedancer | edge-case matrix + recovery test list |
+| Stale abstractions, dead code, compatibility residue | Dustbringer | deletion ledger + migration notes |
+| Turning norms into enforceable checks | Skybreaker | lint/contract rule + CI gate |
+| Blast radius, rollback, watchpoints | Windrunner | rollout packet + rollback plan |
 
-## Three concrete examples
+## Three Concrete Examples
 
-### Bug triage
-Input:
-- "Users occasionally get duplicate shipment records after retry storms."
+### Bug triage — the Everstorm hits
 
-Recommended path:
-- Truthwatcher → Edgedancer → Stoneward
+> "Users occasionally get duplicate shipment records after retry storms."
 
-Artifacts:
-- incident note
-- edge-condition repro matrix
-- failing characterization test and safety budget
+**Path:** Truthwatcher → Edgedancer → Stoneward
 
-### Risky migration
-Input:
-- "We need to split auth sessions into a new store without locking users out."
+**Artifacts:** incident note, edge-condition repro matrix, failing characterization test and safety budget
 
-Recommended path:
-- Elsecaller → Bondsmith → Windrunner
+### Risky migration — crossing the Shattered Plains
 
-Artifacts:
-- migration ADR
-- compatibility matrix and rollout sequence
-- rollback checklist and watchpoints
+> "We need to split auth sessions into a new store without locking users out."
 
-### API cleanup
-Input:
-- "The webhook client works, but the public config surface is confusing and reviewers keep catching contract drift."
+**Path:** Elsecaller → Bondsmith → Windrunner
 
-Recommended path:
-- Lightweaver → Skybreaker → Windrunner
+**Artifacts:** migration ADR, compatibility matrix and rollout sequence, rollback checklist and watchpoints
 
-Artifacts:
-- naming/API clarification patch
-- enforceable schema/contract gate
-- reviewer-ready safety packet
+### API cleanup — the Lightweaver reveals the lie
 
-## Repository layout
+> "The webhook client works, but the public config surface is confusing and reviewers keep catching contract drift."
 
-- `README.md` — package overview, install, and operating notes
-- `CYCLE.md` — rotation protocol and hand-off logic
-- `IDEALS.md` — shared engineering ethics inherited by every order
-- `agents/NN-order/AGENTS.md` — canonical order definitions
-- `agents/NN-order/skills/*.md` — recurring local procedures for that order
-- `skills/knights-radiant/` — Hermes entrypoint skills
-- `profiles/knights-radiant/` — profile template, installer, and SOUL
-- `templates/` — artifact templates for ADRs, matrices, plans, and checklists
-- `docs/examples/` — example task flows and outputs
+**Path:** Lightweaver → Skybreaker → Windrunner
 
-## Doc hierarchy
+**Artifacts:** naming/API clarification patch, enforceable schema/contract gate, reviewer-ready safety packet
 
-- top-level docs = shared model and install story
+## Repository Layout
+
+```
+knightsradiant/
+├── README.md          — you are here
+├── CYCLE.md           — rotation protocol and hand-off logic
+├── IDEALS.md          — the five shared ideals
+├── CONTRIBUTING.md    — standards for contributions
+├── agents/
+│   └── NN-order/
+│       ├── AGENTS.md  — canonical order definition (source of truth)
+│       └── skills/    — local subskills for that order
+├── skills/
+│   └── knights-radiant/
+│       ├── choose-order/ — single-lens router
+│       ├── run-cycle/    — multi-lens sequence router
+│       └── [10 orders]/  — Hermes entrypoints
+├── profiles/
+│   └── knights-radiant/
+│       ├── SOUL.md            — profile persona
+│       ├── config.yaml        — template config
+│       └── install-profile.sh — installer
+├── templates/         — hand-off artifact templates
+└── docs/examples/     — example task flows
+```
+
+## Doc Hierarchy
+
+- Top-level docs = shared doctrine and install story
 - `agents/` = source of truth for how each order behaves
 - `skills/knights-radiant/` = Hermes entrypoints and routing layer
 - `agents/*/skills/` = local reusable procedures for the active order
@@ -190,36 +200,33 @@ Artifacts:
 
 ## Updating
 
-If you installed via clone + `./install.sh`:
-
 ```bash
 cd knightsradiant
 git pull
 ```
 
-What updates immediately:
-- skill-pack content in `skills/` referenced from the repo path
-- shared docs and templates in the repo
+**Updates immediately:** skill-pack content in `skills/`, shared docs, and templates.
 
-What does not update automatically:
-- copied profile files already written into `~/.hermes/profiles/<name>/`, especially `SOUL.md`
-
-If profile-level behavior changes materially, rerun the installer into a fresh profile name or manually compare the repo's profile files against your installed profile.
+**Does not update automatically:** copied profile files in `~/.hermes/profiles/<name>/`, especially `SOUL.md`. Rerun the installer into a fresh profile name or manually compare if the profile changes materially.
 
 ## Uninstall
-
-Remove the created profile:
 
 ```bash
 hermes profile delete knights-radiant
 ```
 
-If you used the skill-pack-only path, remove the repo path from your profile's `skills.external_dirs` list.
+If you used the skill-pack-only path, remove the repo path from your profile's `skills.external_dirs`.
 
-## When not to use Knights Radiant
+## When Not to Use Knights Radiant
 
-Do not force the framework onto tiny throwaway tasks, one-line fixes, or work where the output does not benefit from structured review. The minimum viable cycle is better than theatrical thoroughness.
+Do not force the framework onto tiny throwaway tasks, one-line fixes, or work where the output does not benefit from structured review. The minimum viable cycle is better than theatrical thoroughness. Not every commit needs a Shardblade.
 
 ## Caveat
 
-This project is experimental by design. If the output feels theatrical but does not improve decisions, tests, docs, observability, integration quality, or rollout safety, strip the theme and keep the discipline.
+> *"Sometimes a hypocrite is nothing more than a man in the process of changing."*
+
+This project is experimental by design. If the output feels theatrical but does not improve decisions, tests, docs, observability, integration quality, or rollout safety — strip the theme and keep the discipline.
+
+---
+
+*Bridge Four.*
