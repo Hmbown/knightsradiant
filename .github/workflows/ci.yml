@@ -20,6 +20,44 @@ jobs:
           bash -n install.sh
           bash -n profiles/knights-radiant/install-profile.sh
 
+      - name: Verify profile config patcher normalizes existing Hermes settings
+        run: |
+          tmpdir="$(mktemp -d)"
+          cat >"$tmpdir/config.yaml" <<'YAML'
+          agent:
+            reasoning_effort: medium
+            tool_use_enforcement: manual
+            personalities:
+              helpful: You are helpful.
+          display:
+            personality: kawaii
+          skills:
+            external_dirs:
+              - REPO_ROOT/skills
+              - /tmp/existing-skills
+            external_dirs: []
+          YAML
+
+          python3 profiles/knights-radiant/patch-profile-config.py "$tmpdir/config.yaml" "$PWD/skills"
+
+          python3 - <<'PY' "$tmpdir/config.yaml" "$PWD/skills"
+          import sys
+          from pathlib import Path
+
+          config = Path(sys.argv[1]).read_text()
+          skills_dir = str(Path(sys.argv[2]).resolve())
+
+          assert config.count('  reasoning_effort: high') == 1
+          assert '  reasoning_effort: medium' not in config
+          assert config.count('  tool_use_enforcement: auto') == 1
+          assert '  tool_use_enforcement: manual' not in config
+          assert config.count('  personality: radiant') == 1
+          assert '  personality: kawaii' not in config
+          assert config.count('  external_dirs:') == 1
+          assert f'    - {skills_dir}' in config
+          assert 'REPO_ROOT/skills' not in config
+          PY
+
       - name: Basic repository validation
         run: |
           python3 - <<'PY'

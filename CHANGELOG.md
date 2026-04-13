@@ -16,3 +16,4 @@ The format is loosely based on Keep a Changelog.
 - improved README for public install, verification, update, and uninstall guidance
 - strengthened installer validation and removed placeholder skill-dir behavior
 - expanded order docs and Hermes wrapper skills toward consistent operator-facing output contracts
+- fixed profile installation so existing Hermes configs are normalized in place instead of leaving duplicate keys that override `radiant`, `high`, or the attached external skill dir
