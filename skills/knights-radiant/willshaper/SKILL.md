@@ -30,8 +30,10 @@ Follow `agents/08-willshaper/AGENTS.md` for the canonical decision criteria.
 
 Produce a scaffolding packet that includes:
 - files created
+- runtime bridge artifacts if stateful transition is needed (feature flags, adapters, migration jobs — each with removal condition)
 - build/test wiring
 - setup checklist
+- explicit TODOs (name the receiving order)
 - verification steps
 
 ## Hand-off

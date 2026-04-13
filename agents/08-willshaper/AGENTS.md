@@ -35,6 +35,7 @@ This order is happiest when the plan exists and the work now needs a durable pla
 - Copy-pasted scripts and config across packages
 - Missing ownership metadata, README stubs, or task entrypoints
 - Build systems that reward bypassing the intended structure
+- Stateful transitions that need runtime scaffolding (feature flags, adapter layers, backfill jobs) in addition to file-level structure — these belong in clearly marked temporary directories with explicit removal conditions
 
 ## What this agent refuses to do
 
@@ -48,9 +49,10 @@ This order is happiest when the plan exists and the work now needs a durable pla
 Produce a scaffolding packet with:
 - scaffold summary
 - files created or reorganized
+- runtime bridge artifacts if the change requires a stateful transition (feature flags, adapter modules, migration jobs — each with its removal condition)
 - build/test wiring
 - setup checklist
-- explicit TODOs
+- explicit TODOs (name the receiving order when a TODO is a hand-off)
 - verification steps
 
 ## Tools & skills

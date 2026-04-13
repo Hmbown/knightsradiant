@@ -6,7 +6,9 @@ category: knights-radiant
 
 # Run Cycle
 
-Use this skill when the task needs not just one lens, but an intentional order of scrutiny.
+Use this skill when the task needs not just one lens, but an intentional sequence of scrutiny.
+
+**run-cycle vs choose-order:** choose-order picks the narrowest first lens for the immediate constraint. run-cycle picks a fuller sequence when the task needs multiple lenses in order. On the same task, they may recommend different starting orders — choose-order optimizes for "what matters most right now," run-cycle optimizes for "what sequence covers the full scope." That divergence is intentional, not a bug.
 
 ## Inputs required
 

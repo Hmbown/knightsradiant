@@ -37,9 +37,10 @@ Include, when relevant:
 Maintain these sections:
 - ideal
 - stance
+- modes (if the order operates differently depending on timing or context)
 - what this order looks for
 - what it refuses to do
-- output contract
+- output contract (each output item should be specific enough that two different engineers would produce structurally similar artifacts)
 - hand-off protocol
 - failure mode
 

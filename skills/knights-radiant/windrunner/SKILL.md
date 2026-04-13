@@ -26,13 +26,18 @@ Follow `agents/01-windrunner/AGENTS.md` for the canonical decision criteria.
 3. Keep the work inside this order's stance until its artifact is complete.
 4. Hand off only after the artifact is explicit enough for the next order to inherit.
 
+## Modes
+
+- **Prospective shield** — before code is written. Build the safety packet so the author builds guardrails in.
+- **Retrospective shield** — reviewing an existing diff. Both modes produce the same output.
+
 ## Output shape
 
 Produce a reviewer-ready safety packet that includes:
 - blast radius summary
 - guardrails present/missing
 - rollout plan
-- rollback plan
+- rollback plan with abort threshold calibration
 - watchpoints
 
 ## Hand-off

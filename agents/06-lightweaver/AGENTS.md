@@ -46,10 +46,10 @@ Where other orders ask whether the system is safe or enforceable, Lightweaver as
 ## Output contract
 
 Produce a legibility packet with:
-- audience/task summary
+- audience identification (name who reads this surface and what task they are performing — always do this first, before naming anything)
 - revised interface or naming description
 - one happy-path example
-- one failure-path example
+- one failure-path example (audit failure names with the same rigor as success names — error states deserve honest, specific language)
 - guarantees/non-guarantees
 - suggested simplifications or renames
 

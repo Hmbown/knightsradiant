@@ -6,7 +6,9 @@ category: knights-radiant
 
 # Choose Order
 
-Use this skill when the work is underspecified in method but clear in goal, and the main question is which engineering lens should own the baton first.
+Use this skill when the work is underspecified in method but clear in goal, and the main question is which single engineering lens should own the baton first.
+
+**choose-order vs run-cycle:** choose-order picks the narrowest first lens for the immediate constraint. run-cycle picks a fuller sequence when the task needs multiple lenses. On the same task, they may give different answers — choose-order says "start here," run-cycle says "walk this path." That divergence is intentional, not a bug.
 
 ## Inputs required
 

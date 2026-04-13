@@ -32,6 +32,7 @@ Produce a load-bearing packet that includes:
 - critical scenarios
 - baseline metrics
 - tests added
+- kill-switch contract (the operational lever that reverts under pressure, without a deploy)
 - risk notes
 
 ## Hand-off

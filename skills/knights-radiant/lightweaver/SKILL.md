@@ -29,8 +29,8 @@ Follow `agents/06-lightweaver/AGENTS.md` for the canonical decision criteria.
 ## Output shape
 
 Produce a legibility packet that includes:
-- audience/task summary
-- example usage
+- audience identification (name who reads this and what task they are performing — always do this first)
+- example usage (happy path and failure path)
 - guarantees/non-guarantees
 - rename/doc patch
 

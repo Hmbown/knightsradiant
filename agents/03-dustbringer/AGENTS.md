@@ -47,9 +47,10 @@ This order is at its best when the shape is already visible. Once the system's i
 
 Produce a simplification packet with:
 - deletion ledger
-- usage evidence
+- usage evidence (specify the type: telemetry data, code grep, dependency graph, or interviews; name the source)
 - characterization tests added
 - simplification patch summary
+- migration choreography if the deletion requires phased rollout (phases, rollback triggers, observability for each phase)
 - migration notes or tombstones
 - residual risk list
 

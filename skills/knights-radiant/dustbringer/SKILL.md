@@ -30,8 +30,9 @@ Follow `agents/03-dustbringer/AGENTS.md` for the canonical decision criteria.
 
 Produce a simplification packet that includes:
 - deletion ledger
-- usage evidence
+- usage evidence (specify the type: telemetry, code grep, dependency graph, or interviews)
 - characterization tests
+- migration choreography if phased rollout is needed
 - migration notes
 
 ## Hand-off

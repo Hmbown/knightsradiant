@@ -48,10 +48,12 @@ Where other orders think about one repo or one service, Bondsmith thinks about t
 Produce an integration packet with:
 - participants and interfaces
 - compatibility matrix
+- observability contract: which signals must exist before each phase advances, who owns the dashboards, and what alert thresholds gate the next step
 - rollout sequence
 - migration/backfill/rollback notes
 - integration tests added or required
 - ownership and coordination checklist
+- Elsecaller escalation trigger: if the compatibility matrix requires more than N adapters, or if the coordination overhead exceeds the value of preserving the current boundary, stop and redesign
 
 ## Tools & skills
 

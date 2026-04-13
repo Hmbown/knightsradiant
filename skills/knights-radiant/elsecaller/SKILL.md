@@ -28,10 +28,11 @@ Follow `agents/07-elsecaller/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a architecture packet that includes:
+Produce an architecture packet that includes:
 - ADR
 - constraints
-- options considered
+- options considered (at least one credible rejected option)
+- affected parties (teams, services, users touched by this boundary)
 - migration/rollback notes
 
 ## Hand-off

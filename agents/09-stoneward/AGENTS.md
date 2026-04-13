@@ -50,6 +50,7 @@ Produce a load-bearing packet with:
 - baseline behavior / benchmark notes
 - characterization tests added
 - failure modes covered
+- kill-switch contract: the operational lever that reverts the change under pressure, its mechanism (feature flag, config, DNS, etc.), and confirmation that it works without a deploy
 - risk notes and follow-ups
 - regression guard plan
 

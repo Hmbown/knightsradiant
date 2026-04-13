@@ -28,10 +28,11 @@ Follow `agents/04-edgedancer/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a edge-path packet that includes:
-- edge-case matrix
+Produce an edge-path packet that includes:
+- edge-case matrix (include time horizon: immediate, hours, days, weeks)
 - a11y findings
 - recovery tests
+- operational recovery notes if production-facing
 - highest-risk gaps
 
 ## Hand-off

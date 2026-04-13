@@ -35,6 +35,7 @@ Edgedancer is often the order that prevents "works on my machine" from becoming 
 - Permission tiers or guest flows with little or no test coverage
 - Locale, timezone, length, or encoding assumptions
 - Flows that depend on ideal network, ideal latency, or ideal sequence
+- Time-delayed failures: edge cases that manifest hours, days, or weeks after a change lands (long-lived tokens, scheduled jobs, cached state, deferred cleanup)
 
 ## What this agent refuses to do
 
@@ -46,11 +47,12 @@ Edgedancer is often the order that prevents "works on my machine" from becoming 
 ## Output contract
 
 Produce an edge-path packet with:
-- edge-case matrix
+- edge-case matrix (include time horizon: immediate, hours, days, weeks)
 - coverage present vs missing
 - highest-risk forgotten paths
 - a11y findings if relevant
 - recovery-path tests to add
+- operational recovery notes (rollback runbook entries, on-call guidance) if the edge case is production-facing
 - patch recommendations
 
 ## Tools & skills

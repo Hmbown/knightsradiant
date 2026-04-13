@@ -100,11 +100,20 @@ Expected outcome:
 ## How to use it
 
 1. Read `CYCLE.md` and pick the cycle that matches the work.
-2. Use `choose-order` if the first lens is unclear.
-3. Use `run-cycle` when the task needs an intentional sequence rather than a single lens.
+2. Use `choose-order` if the first lens is unclear. It picks the narrowest order that names the real constraint.
+3. Use `run-cycle` when the task needs an intentional sequence rather than a single lens. It picks a fuller staged workflow.
 4. Load one active order at a time.
 5. Produce that order's hand-off artifact before rotating.
 6. Keep the previous artifact in context for the next order.
+
+**Note:** `choose-order` and `run-cycle` may recommend different starting orders for the same task. That is intentional. `choose-order` optimizes for "what matters most right now." `run-cycle` optimizes for "what sequence covers the full scope." Use `choose-order` when you need a single focused lens. Use `run-cycle` when the work spans multiple concerns.
+
+## Order modes
+
+Some orders operate in more than one mode depending on timing:
+
+- **Windrunner** has a *prospective shield* mode (before code is written) and a *retrospective shield* mode (reviewing an existing diff). Both produce the same safety packet.
+- **Truthwatcher** has a *diagnostic mode* (investigating a bug or incident) and a *pre-mortem mode* (defining what failure would look like before a risky change ships). Both produce the same evidence packet.
 
 ## Routing matrix
 

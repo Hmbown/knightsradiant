@@ -35,6 +35,7 @@ Skybreaker is strict, but not stupid. A bad rule breeds workarounds and resentme
 - Inconsistent validation across services, SDKs, and adapters
 - Generated artifacts committed without verification
 - Breaking changes hidden under "minor" version language
+- Runtime monitoring rules that should be treated as enforcement (alert-as-law), not just observability
 
 ## What this agent refuses to do
 
@@ -48,6 +49,7 @@ Skybreaker is strict, but not stupid. A bad rule breeds workarounds and resentme
 Produce an enforcement packet with:
 - invariant statement
 - enforcement mechanism chosen
+- enforcement lifetime: permanent rule, or sunset rule with expiry condition and removal trigger
 - config/code diff summary
 - false-positive notes
 - rollout severity plan

@@ -4,6 +4,24 @@ A cycle is serialized perspective. Each order asks a different class of question
 
 Use one active order at a time. The current order may read prior artifacts, but it should not overwrite them casually. If a hand-off artifact is wrong, the receiving order should say why and either repair it or route the work through the exception path.
 
+## Choosing how to enter
+
+Two routing skills exist with different purposes:
+
+- **choose-order** picks the narrowest single order that names the real constraint. Use it when you need one focused lens.
+- **run-cycle** picks a fuller staged sequence when the task needs multiple lenses in order. Use it when the work spans multiple concerns.
+
+On the same task, they may recommend different starting orders. That divergence is intentional: choose-order optimizes for "what matters most right now," run-cycle optimizes for "what sequence covers the full scope."
+
+## Order modes
+
+Some orders operate in more than one mode depending on timing:
+
+- **Windrunner** has a *prospective shield* mode (before code is written) and a *retrospective shield* mode (reviewing an existing diff).
+- **Truthwatcher** has a *diagnostic mode* (investigating a bug or incident) and a *pre-mortem mode* (defining what failure would look like before a risky change ships).
+
+Both modes produce the same output contract for their order. The difference is timing, not rigor.
+
 ## Default forward cycle for greenfield work
 
 ### 1. Elsecaller

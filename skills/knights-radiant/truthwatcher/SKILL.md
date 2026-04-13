@@ -26,12 +26,18 @@ Follow `agents/05-truthwatcher/AGENTS.md` for the canonical decision criteria.
 3. Keep the work inside this order's stance until its artifact is complete.
 4. Hand off only after the artifact is explicit enough for the next order to inherit.
 
+## Modes
+
+- **Diagnostic mode** — a bug or incident exists. Build the evidence chain from symptom to cause.
+- **Pre-mortem mode** — a risky change is planned. Define what failure would look like and what signals must exist to detect it.
+
 ## Output shape
 
-Produce a evidence packet that includes:
-- symptom statement
-- timeline
-- hypothesis tree
+Produce an evidence packet that includes:
+- symptom statement (or failure-scenario description in pre-mortem mode)
+- timeline (or expected failure timeline)
+- hypothesis tree (or risk tree)
+- what is currently unobservable
 - verification signals
 
 ## Hand-off

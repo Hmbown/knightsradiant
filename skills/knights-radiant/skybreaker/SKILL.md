@@ -28,9 +28,10 @@ Follow `agents/02-skybreaker/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a enforcement packet that includes:
+Produce an enforcement packet that includes:
 - invariant statement
 - enforcement mechanism
+- enforcement lifetime (permanent rule or sunset rule with expiry condition)
 - exception policy
 - CI or lint changes
 
