@@ -97,6 +97,19 @@ Then restart Hermes and load:
 - `run-cycle`
 - one active order at a time, such as `elsecaller` or `windrunner`
 
+## Which surface should I use?
+
+Short version: both exist for different jobs.
+
+- Use the `profiles/` path if you want the easiest day-to-day Hermes experience. The profile gives you the Knights Radiant persona defaults and attaches the skill pack for you.
+- Use the `skills/` path if you already have a profile you like and only want the order routers and entrypoints.
+- Use the `agents/*/AGENTS.md` files as the canonical source of truth for order behavior, output contracts, and hand-off logic. These are the docs to read when refining the system, reviewing drift, or porting the framework to another agent runtime.
+
+Recommended default:
+- operators using Hermes interactively: profile + skills
+- contributors maintaining the framework: skills + `agents/*/AGENTS.md`
+- non-Hermes consumers or other agent frameworks: `agents/*/AGENTS.md` first, then mirror the relevant skill entrypoints
+
 ## Verify Install
 
 ```bash
@@ -135,6 +148,7 @@ Windrunner: reviewer hotspots, abort thresholds, rollback steps, open risks/owne
 ```
 
 Full worked example: `docs/examples/session-transcript-example.md`
+Artifact excerpts: `docs/examples/artifact-excerpts.md`
 
 ## Order Modes
 
@@ -219,10 +233,12 @@ knightsradiant/
 ## Doc Hierarchy
 
 - Top-level docs = shared doctrine and install story
+- `profiles/` = easiest Hermes-on-ramp; persona + config defaults + installer
 - `agents/` = source of truth for how each order behaves
 - `skills/knights-radiant/` = Hermes entrypoints and routing layer
 - `agents/*/skills/` = local reusable procedures for the active order
 - `templates/` = copyable output shapes and hand-off artifacts
+- `docs/examples/` = session snippets and artifact excerpts that show what good output looks like
 
 ## Updating
 
