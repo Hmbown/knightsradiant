@@ -9,7 +9,7 @@ Use one active order at a time. The current order may read prior artifacts, but 
 Two routing skills exist with different purposes:
 
 - **choose-order** picks the narrowest single order that names the real constraint. Use it when you need one focused lens.
-- **run-cycle** picks a fuller staged sequence when the task needs multiple lenses in order. Use it when the work spans multiple concerns.
+- **run-cycle** picks a fuller staged sequence when the task needs multiple lenses in order. Use it when the work spans multiple concerns, including risky migrations that need architecture, choreography, enforcement, and rollout protection.
 
 On the same task, they may recommend different starting orders. That divergence is intentional: choose-order optimizes for "what matters most right now," run-cycle optimizes for "what sequence covers the full scope."
 
@@ -116,6 +116,24 @@ After the new shape lands, codify it. Skybreaker makes the cleaner structure enf
 End by proving the refactor did not weaken the core. Stoneward compares before and after on latency, throughput, memory, failure handling, and reliability on the critical path.  
 **Hand-off artifact:** benchmark comparison, characterization results, and unresolved risk list.
 
+## Risky migration cycle
+
+### 1. Elsecaller
+Start by naming the irreversible choice. Risky migrations fail when a team treats a boundary change as a mere implementation detail. Elsecaller writes the migration ADR, compares at least one reversible alternative, and makes rollback constraints explicit before any phased rollout starts.  
+**Hand-off artifact:** migration ADR, affected parties, compatibility constraints, and rollback assumptions.
+
+### 2. Bondsmith
+Once the target shape is chosen, choreograph the overlap period. Bondsmith defines who talks to whom in each phase, what remains backward-compatible, how backfills and bridges behave, and which signals must be green before the next phase can begin.  
+**Hand-off artifact:** compatibility matrix, observability gates, rollout sequence, and migration/backfill notes.
+
+### 3. Skybreaker
+Before traffic shifts, encode the law. Skybreaker turns migration assumptions into contract tests, config/schema guards, and CI checks so the phased plan cannot drift silently in implementation.  
+**Hand-off artifact:** enforcement packet, phase-advance rule, exception policy, and severity plan.
+
+### 4. Windrunner
+Finish by making the landing survivable. Windrunner packages blast radius, reviewer hotspots, abort thresholds, watch metrics, and rollback steps so the migration can move without requiring heroics from on-call.  
+**Hand-off artifact:** merge-safety packet, rollout order, rollback plan, and open risks/owners.
+
 ## Minimum viable cycle
 
 When ten orders are overkill, do not fake thoroughness. Run three lenses:
@@ -132,6 +150,21 @@ When ten orders are overkill, do not fake thoroughness. Run three lenses:
 3. **A protector** — finish with Windrunner.
 
 If you want one default small-task triplet for ordinary repo work, use **Lightweaver → Skybreaker → Windrunner**: make the change legible, encode its invariants, then make it safe to land.
+
+## Exception hand-off graph
+
+Exception paths are not failures of the framework. They are the designed route for "I cannot finish this order honestly because the real blocker lives elsewhere."
+
+- **Elsecaller → Lightweaver** when the architecture dispute is actually a language problem and the system surface is still lying.
+- **Willshaper → Elsecaller** when scaffolding is being asked to carry unresolved architecture.
+- **Stoneward → Truthwatcher** when reliability concerns are still mostly speculation and need evidence first.
+- **Bondsmith → Elsecaller** when coordination overhead or adapter count suggests the boundary itself is wrong.
+- **Lightweaver → Elsecaller** when naming confusion is downstream of structural confusion.
+- **Truthwatcher → Stoneward** when the evidence now points to a load-bearing reliability problem that needs characterization tests and kill-switch planning.
+- **Edgedancer → Truthwatcher** when a forgotten path cannot be reproduced or observed well enough to reason about safely.
+- **Dustbringer → Elsecaller** when deletion pressure reveals an unresolved boundary decision rather than mere residue.
+- **Skybreaker → Bondsmith** when the invariant spans multiple systems and needs coordinated ownership.
+- **Windrunner → Truthwatcher** when risk cannot yet be quantified because the necessary signals do not exist.
 
 ## Anti-patterns
 

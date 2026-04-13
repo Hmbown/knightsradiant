@@ -28,11 +28,17 @@ Follow `agents/06-lightweaver/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a legibility packet that includes:
-- audience identification (name who reads this and what task they are performing — always do this first)
-- example usage (happy path and failure path)
+Produce the full legibility packet defined in `agents/06-lightweaver/AGENTS.md`.
+
+At minimum, include:
+- audience identification (name who reads this surface and what task they are performing — always do this first, before naming anything)
+- revised interface or naming description
+- one happy-path example
+- one failure-path example (audit failure names with the same rigor as success names — error states deserve honest, specific language)
 - guarantees/non-guarantees
-- rename/doc patch
+- suggested simplifications or renames
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

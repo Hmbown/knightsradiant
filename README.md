@@ -4,7 +4,7 @@
 
 Ten orders. Ten engineering stances. One codebase at a time.
 
-Knights Radiant is a [Hermes](https://github.com/anthropics/hermes) profile and skill pack that treats software work as a rotation of disciplined lenses rather than a single all-purpose persona. Each order carries a different Surge — architecture, reliability, rollout safety, observability, naming, enforcement, edge cases, scaffolding, integration, and simplification — and produces an explicit hand-off artifact before yielding the baton.
+Knights Radiant is a [Hermes](https://github.com/anthropics/hermes) profile and skill pack. Hermes is an AI agent framework that supports loadable profiles and skill packs. This repo treats software work as a rotation of disciplined lenses rather than a single all-purpose persona. Each order carries a different Surge — architecture, reliability, rollout safety, observability, naming, enforcement, edge cases, scaffolding, integration, and simplification — and produces an explicit hand-off artifact before yielding the baton.
 
 The theme is Sanderson's. The value is practical: a forced perspective shift catches blind spots that a single engineer, reviewer, or coding agent will routinely miss.
 
@@ -25,6 +25,8 @@ The theme is Sanderson's. The value is practical: a forced perspective shift cat
 | **Stoneward** | Reliability | *I will hold the weight, measure the strain, and strengthen what others must trust.* |
 | **Bondsmith** | Integration | *I will bind the parts without hiding the seams, so many systems can move as one.* |
 
+Note: the order numbering follows the Stormlight ring, not the default engineering cycle order. The default greenfield cycle begins at Elsecaller (`07`) and ends at Windrunner (`01`).
+
 ## The Five Ideals
 
 Every order inherits these oaths. Their methods differ. Their ethics do not.
@@ -42,7 +44,7 @@ Every order inherits these oaths. Their methods differ. Their ethics do not.
 - Canonical order docs under `agents/NN-order/AGENTS.md`
 - Local order subskills under `agents/NN-order/skills/`
 - Shared doctrine in `CYCLE.md` and `IDEALS.md`
-- Artifact templates under `templates/`
+- Order-level packet templates and supporting sub-templates under `templates/`
 - Examples under `docs/examples/`
 
 ## Install
@@ -50,7 +52,7 @@ Every order inherits these oaths. Their methods differ. Their ethics do not.
 ### Prerequisites
 
 - Hermes installed and working (`hermes --help`)
-- An existing usable Hermes profile to clone from
+- A working Hermes setup with at least one usable configured profile to clone from
 - `python3` available on PATH
 - macOS/Linux shell environment with `bash`
 
@@ -114,6 +116,26 @@ Expected: the profile exists, the skill directory is attached, and all Knights R
 
 **choose-order vs run-cycle:** These may recommend different starting orders for the same task. That is intentional. `choose-order` optimizes for "what matters most right now." `run-cycle` optimizes for "what sequence covers the full scope." One is a single Surge. The other is a full patrol.
 
+If an order gets blocked because the real problem lives elsewhere, follow the exception hand-off graph in `CYCLE.md` instead of forcing the wrong lens to continue.
+
+## What a session looks like
+
+Minimal transcript:
+
+```text
+User: We need to split auth sessions into a new store without locking users out.
+Hermes + choose-order: Start with Elsecaller. First artifact: architecture packet.
+Elsecaller: ADR says dual-read first, new service becomes authoritative only after parity holds.
+Hermes hand-off: Next order Bondsmith. Carry forward the ADR and affected parties.
+Bondsmith: Compatibility matrix and rollout phases for monolith ↔ new session service.
+Hermes hand-off: Next order Skybreaker.
+Skybreaker: CI/schema gate to prevent phase advancement without required metrics.
+Hermes hand-off: Next order Windrunner.
+Windrunner: reviewer hotspots, abort thresholds, rollback steps, open risks/owners.
+```
+
+Full worked example: `docs/examples/session-transcript-example.md`
+
 ## Order Modes
 
 Some orders shift stance depending on timing:
@@ -152,9 +174,9 @@ Some orders shift stance depending on timing:
 
 > "We need to split auth sessions into a new store without locking users out."
 
-**Path:** Elsecaller → Bondsmith → Windrunner
+**Path:** Elsecaller → Bondsmith → Skybreaker → Windrunner
 
-**Artifacts:** migration ADR, compatibility matrix and rollout sequence, rollback checklist and watchpoints
+**Artifacts:** migration ADR, compatibility matrix and rollout sequence, enforcement packet for phase advancement, merge-safety packet with watch metrics and rollback steps
 
 ### API cleanup — the Lightweaver reveals the lie
 
@@ -183,10 +205,14 @@ knightsradiant/
 │       └── [10 orders]/  — Hermes entrypoints
 ├── profiles/
 │   └── knights-radiant/
-│       ├── SOUL.md            — profile persona
-│       ├── config.yaml        — template config
-│       └── install-profile.sh — installer
+│       ├── README.md               — profile-specific install notes
+│       ├── SOUL.md                 — profile persona
+│       ├── config.yaml             — template config
+│       ├── install-profile.sh      — installer
+│       └── patch-profile-config.py — config patcher used by the installer
 ├── templates/         — hand-off artifact templates
+├── scripts/           — repo verification helpers
+├── .github/workflows/ — CI checks for repo consistency
 └── docs/examples/     — example task flows
 ```
 
@@ -216,6 +242,14 @@ hermes profile delete knights-radiant
 ```
 
 If you used the skill-pack-only path, remove the repo path from your profile's `skills.external_dirs`.
+
+## Repo verification
+
+```bash
+python3 scripts/verify_output_contracts.py
+```
+
+This checks that each Hermes entrypoint skill still exposes the full output contract defined by its canonical `agents/*/AGENTS.md` doc.
 
 ## When Not to Use Knights Radiant
 

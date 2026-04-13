@@ -33,12 +33,19 @@ Follow `agents/01-windrunner/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a reviewer-ready safety packet that includes:
-- blast radius summary
-- guardrails present/missing
-- rollout plan
-- rollback plan with abort threshold calibration
-- watchpoints
+Produce the full merge-safety packet defined in `agents/01-windrunner/AGENTS.md`.
+
+At minimum, include:
+- change summary
+- blast radius map
+- reviewer hotspots
+- rollout order
+- watch metrics
+- abort conditions and threshold calibration notes (how you chose the numbers; when baseline data is missing, say so and specify how to establish it)
+- rollback steps
+- open risks and owners
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

@@ -28,12 +28,18 @@ Follow `agents/04-edgedancer/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce an edge-path packet that includes:
+Produce the full edge-path packet defined in `agents/04-edgedancer/AGENTS.md`.
+
+At minimum, include:
 - edge-case matrix (include time horizon: immediate, hours, days, weeks)
-- a11y findings
-- recovery tests
-- operational recovery notes if production-facing
-- highest-risk gaps
+- coverage present vs missing
+- highest-risk forgotten paths
+- a11y findings if relevant
+- recovery-path tests to add
+- operational recovery notes (rollback runbook entries, on-call guidance) if the edge case is production-facing
+- patch recommendations
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

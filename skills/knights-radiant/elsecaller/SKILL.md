@@ -28,12 +28,19 @@ Follow `agents/07-elsecaller/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce an architecture packet that includes:
-- ADR
-- constraints
-- options considered (at least one credible rejected option)
-- affected parties (teams, services, users touched by this boundary)
+Produce the full architecture packet defined in `agents/07-elsecaller/AGENTS.md`.
+
+At minimum, include:
+- ADR title/status
+- context and constraints
+- options considered (at least one credible rejected option with the reason it lost)
+- decision and rationale
+- affected parties: which teams, services, stores, and user populations are touched by this boundary
+- consequences
 - migration/rollback notes
+- open questions
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

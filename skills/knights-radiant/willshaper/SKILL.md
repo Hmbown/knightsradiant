@@ -28,13 +28,18 @@ Follow `agents/08-willshaper/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a scaffolding packet that includes:
-- files created
-- runtime bridge artifacts if stateful transition is needed (feature flags, adapters, migration jobs — each with removal condition)
+Produce the full scaffolding packet defined in `agents/08-willshaper/AGENTS.md`.
+
+At minimum, include:
+- scaffold summary
+- files created or reorganized
+- runtime bridge artifacts if the change requires a stateful transition (feature flags, adapter modules, migration jobs — each with its removal condition)
 - build/test wiring
 - setup checklist
-- explicit TODOs (name the receiving order)
+- explicit TODOs (name the receiving order when a TODO is a hand-off)
 - verification steps
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

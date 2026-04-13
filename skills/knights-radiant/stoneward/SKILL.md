@@ -28,12 +28,18 @@ Follow `agents/09-stoneward/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a load-bearing packet that includes:
+Produce the full load-bearing packet defined in `agents/09-stoneward/AGENTS.md`.
+
+At minimum, include:
 - critical scenarios
-- baseline metrics
-- tests added
-- kill-switch contract (the operational lever that reverts under pressure, without a deploy)
-- risk notes
+- baseline behavior / benchmark notes
+- characterization tests added
+- failure modes covered
+- kill-switch contract: the operational lever that reverts the change under pressure, its mechanism (feature flag, config, DNS, etc.), and confirmation that it works without a deploy
+- risk notes and follow-ups
+- regression guard plan
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

@@ -33,12 +33,19 @@ Follow `agents/05-truthwatcher/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce an evidence packet that includes:
+Produce the full evidence packet defined in `agents/05-truthwatcher/AGENTS.md`.
+
+At minimum, include:
 - symptom statement (or failure-scenario description in pre-mortem mode)
-- timeline (or expected failure timeline)
-- hypothesis tree (or risk tree)
-- what is currently unobservable
-- verification signals
+- timeline (or expected failure timeline in pre-mortem mode)
+- evidence summary
+- hypothesis tree (or risk tree in pre-mortem mode)
+- most likely cause with confidence
+- what is currently unobservable and what instrumentation is needed to make it visible
+- confirming next step
+- fix verification signals
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

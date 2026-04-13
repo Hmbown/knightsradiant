@@ -2,6 +2,8 @@
 
 This profile is intended to be created by cloning a working Hermes profile and then applying only the Knights Radiant-specific changes.
 
+Prerequisite: you need a working Hermes installation with at least one configured profile that `hermes profile create --clone` can copy.
+
 ## Why clone first
 
 - preserves provider/auth setup already known to work

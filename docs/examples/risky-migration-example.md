@@ -11,6 +11,6 @@ Recommended sequence:
 
 Artifacts:
 - migration ADR
-- compatibility matrix
-- enforcement gates for the new contract
-- rollout and rollback checklist
+- compatibility matrix, observability gates, and rollout sequence
+- enforcement packet: phase-advance rule, exception policy, and severity plan
+- merge-safety packet: reviewer hotspots, watch metrics, abort thresholds, and rollback steps

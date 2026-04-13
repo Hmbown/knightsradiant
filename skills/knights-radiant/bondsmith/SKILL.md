@@ -28,13 +28,19 @@ Follow `agents/10-bondsmith/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce an integration packet that includes:
-- participants
+Produce the full integration packet defined in `agents/10-bondsmith/AGENTS.md`.
+
+At minimum, include:
+- participants and interfaces
 - compatibility matrix
-- observability contract (signals required before each phase advances)
+- observability contract: which signals must exist before each phase advances, who owns the dashboards, and what alert thresholds gate the next step
 - rollout sequence
-- rollback notes
-- Elsecaller escalation trigger if coordination overhead exceeds boundary value
+- migration/backfill/rollback notes
+- integration tests added or required
+- ownership and coordination checklist
+- Elsecaller escalation trigger: if the compatibility matrix requires more than N adapters, or if the coordination overhead exceeds the value of preserving the current boundary, stop and redesign
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

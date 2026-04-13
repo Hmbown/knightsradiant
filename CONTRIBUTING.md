@@ -57,6 +57,7 @@ Run before opening a PR:
 ```bash
 bash -n install.sh
 bash -n profiles/knights-radiant/install-profile.sh
+python3 scripts/verify_output_contracts.py
 python3 - <<'PY'
 from pathlib import Path
 root = Path('.')

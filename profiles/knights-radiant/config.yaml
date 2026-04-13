@@ -1,10 +1,8 @@
 # Template config for the knights-radiant Hermes profile.
 # This file is documentation-first: the installer writes the real repo path into
 # ~/.hermes/profiles/<name>/config.yaml during install.
-
-model:
-  default: gpt-5.4
-  provider: openai-codex
+# Provider/model settings are inherited from the profile being cloned; this
+# template intentionally does not pin a specific model.
 
 toolsets:
   - all

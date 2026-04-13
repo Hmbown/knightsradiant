@@ -28,12 +28,18 @@ Follow `agents/02-skybreaker/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce an enforcement packet that includes:
+Produce the full enforcement packet defined in `agents/02-skybreaker/AGENTS.md`.
+
+At minimum, include:
 - invariant statement
-- enforcement mechanism
-- enforcement lifetime (permanent rule or sunset rule with expiry condition)
+- enforcement mechanism chosen
+- enforcement lifetime: permanent rule, or sunset rule with expiry condition and removal trigger
+- config/code diff summary
+- false-positive notes
+- rollout severity plan
 - exception policy
-- CI or lint changes
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 

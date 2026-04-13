@@ -28,12 +28,18 @@ Follow `agents/03-dustbringer/AGENTS.md` for the canonical decision criteria.
 
 ## Output shape
 
-Produce a simplification packet that includes:
+Produce the full simplification packet defined in `agents/03-dustbringer/AGENTS.md`.
+
+At minimum, include:
 - deletion ledger
-- usage evidence (specify the type: telemetry, code grep, dependency graph, or interviews)
-- characterization tests
-- migration choreography if phased rollout is needed
-- migration notes
+- usage evidence (specify the type: telemetry data, code grep, dependency graph, or interviews; name the source)
+- characterization tests added
+- simplification patch summary
+- migration choreography if the deletion requires phased rollout (phases, rollback triggers, observability for each phase)
+- migration notes or tombstones
+- residual risk list
+
+Do not omit required output items from the canonical output contract, even if you summarize elsewhere.
 
 ## Hand-off
 
